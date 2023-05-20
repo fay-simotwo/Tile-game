@@ -1,0 +1,27 @@
+.flex-containers{
+    display: flex;
+    background-color: dodgerblue;
+    width: 700px;
+    border-radius: 10px ;
+    border: 10px solid black;
+    height: 800px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    
+}
+.flex-box{
+    width: 150px;
+    height: 150px;
+    background-color: wheat;
+    line-height: 200px;
+    margin:10px;
+    text-align: center;
+    border-radius: 20px;
+
+
+
+}
+
+
