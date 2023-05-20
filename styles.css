@@ -8,17 +8,18 @@ html{
 h1{
     text-align: center;
     color: wheat;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family:cursive; 
     font-style: italic;
     font-weight: 900;
+    font-size: xx-large;
 }
 .flex-containers{
     display: flex;
-    background-color:rgb(245, 157, 172);
+    background-color:lightcoral;
     width: 800px;
     border-radius: 20px ;
     border: 5px solid none;
-    height: 800px;
+    height: 580px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
@@ -32,7 +33,7 @@ h1{
     margin:10px;
     text-align: center;
     border-radius: 20px;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 img{
     height: 80px;
