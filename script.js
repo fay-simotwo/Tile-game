@@ -134,4 +134,32 @@ function startTimer() {
   
     startTimer(); // Start the timer when shuffling is complete
   })();
+  const restartButton = document.getElementById('restart-button');
+restartButton.addEventListener('click', restartGame);
+
+function restartGame() {
+  // Reset game board
+  boxes.forEach(box => {
+    box.classList.remove('flip');
+    box.addEventListener('click', flipBox);
+  });
+
+  resetBoard();
+
+  // Reset move counter
+  moveCounter = 0;
+  moveCounterElement.textContent = moveCounter;
+
+  // Reset star rating
+  updateStarRating();
+
+  // Reset timer
+  stopTimer();
+  seconds = 0;
+  minutes = 0;
+  timerElement.textContent = '00:00';
+
+  // Start timer again
+  startTimer();
+}
 boxes.forEach(box => box.addEventListener('click', flipBox));
