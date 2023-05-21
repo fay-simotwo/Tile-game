@@ -2,7 +2,9 @@ const boxes = document.querySelectorAll('.boxes li');
 let hasFlippedBox = false;
 let lockBoard = false;
 let firstBox, secondBox;
+let moveCounter = 0;
 
+const moveCounterElement = document.getElementById('move-counter');
 function flipBox() {
   if (lockBoard) return;
   if (this === firstBox) return;
@@ -15,6 +17,7 @@ function flipBox() {
   } else {
     secondBox = this;
     checkForMatch();
+    incrementMoveCounter();
   }
 }
 
@@ -68,6 +71,10 @@ function resetBoard() {
   [hasFlippedBox, lockBoard] = [false, false];
   [firstBox, secondBox] = [null, null];
 }
+function incrementMoveCounter() {
+    moveCounter++; // Increment the move counter
+    moveCounterElement.textContent = moveCounter; // Update the move counter element in the HTML
+  }
 
 (function shuffle() {
   boxes.forEach(box => {
