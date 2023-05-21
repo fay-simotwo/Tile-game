@@ -21,6 +21,15 @@ h1{
     font-weight: 900;
     font-size: xx-large;
 }
+button{
+    font-size: large;
+    border-radius: 10px;
+    background-color: darkslategray;
+    font-family: cursive;
+    width: 100px;
+    height: 30px;
+
+}
 .flex-containers{
     /* display: flex; */
     background-color:lightcoral;
