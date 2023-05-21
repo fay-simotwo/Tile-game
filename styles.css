@@ -14,19 +14,22 @@ h1{
     font-size: xx-large;
 }
 .flex-containers{
-    display: flex;
+    /* display: flex; */
     background-color:lightcoral;
     width: 800px;
+    height: 800px;
     border-radius: 20px ;
     border: 5px solid none;
     height: 580px;
-    flex-direction: row;
+    padding: 25px;
+    /* flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: center; */
+    box-shadow: 0 0 10px;
     
     
 }
-.flex-box{
+/* .box.back img{
     width: 150px;
     height: 150px;
     line-height: 200px;
@@ -34,16 +37,62 @@ h1{
     text-align: center;
     border-radius: 20px;
     margin-top: 30px;
-}
-img{
+    transform-style: preserve-3d;
+    perspective: 800px;
+} */
+/* img{
     height: 80px;
     width:80px;
     background:linear-gradient(rgb(7, 7, 7),rgb(179, 49, 49));
     background-size: cover;
     border-radius: 10px;
    
+} */
+.boxes, .box, .flexbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.boxes{
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.boxes .box {
+    position: relative;
+    perspective: 800px;
+    transform-style: flat;
+    height: calc(100% / 4 - 10px);
+    width: calc(100% / 4 - 10px);
+    cursor: pointer;
+}
+.boxes .box .flexbox{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    backface-visibility: hidden;
+    background: linear-gradient(rgb(211, 50, 50),rgb(19, 5, 7));
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px;
+    margin-left: -65px;
+
+}
+.box .back img{
+    height: 50px;
+}
+.box .back{
+    transform:rotateY(-180deg) ;
+}
+.box:hover .front{
+    transform: rotateY(180deg);
 }
 
+.box:hover .back{
+    transform: rotateY(0);
+}
 
 
 
