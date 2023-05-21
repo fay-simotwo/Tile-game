@@ -1,5 +1,5 @@
 html{
-    background:linear-gradient(rgb(8, 8, 61) 30%,purple 70%) ;
+    background:linear-gradient(rgb(1, 1, 36) 30%,rgb(207, 196, 207) 70%) ;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -40,14 +40,13 @@ h1{
     transform-style: preserve-3d;
     perspective: 800px;
 } */
-/* img{
-    height: 80px;
+img{
+    height: 40px;
     width:80px;
-    background:linear-gradient(rgb(7, 7, 7),rgb(179, 49, 49));
     background-size: cover;
     border-radius: 10px;
    
-} */
+}
 .boxes, .box, .flexbox{
     display: flex;
     align-items: center;
@@ -73,12 +72,13 @@ h1{
     width: 150px;
     height: 150px;
     backface-visibility: hidden;
-    background: linear-gradient(rgb(211, 50, 50),rgb(19, 5, 7));
+    background: linear-gradient(rgb(134, 58, 105),rgb(19, 5, 7));
     align-items: center;
     border-radius: 10px;
     box-shadow: 0 0 10px;
     margin-left: -75px;
     margin-bottom: 30px;
+    transition:transform 0.30s linear;
 
 }
 .box .back img{
@@ -87,13 +87,34 @@ h1{
 .box .back{
     transform:rotateY(-180deg) ;
 }
-.box:hover .front{
+.box.flip .front{
     transform: rotateY(180deg);
 }
 
-.box:hover .back{
+.box.flip .back{
     transform: rotateY(0);
 }
+.box.vibration{
+    animation: vibration 0.30s ease-in-out;
+}
+@keyframes vibration{
+    0%, 100%{
+        transform: translate(0);
+    }
+    20%{
+        transform: translate(-13px);        
+    }
+    40%{
+        transform: translate(13px);
+    }
+    60%{
+        transform: translate(-8px);
+    }
+    80%{
+        transform: translate(8px);
+    }
+}
+
 
 
 
