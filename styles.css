@@ -5,6 +5,14 @@ html{
     display: flex;
     min-height: 100vh;
 }
+p{
+    color: rgb(5, 4, 1);
+    font-family:cursive; 
+    font-style:oblique;
+    font-weight: 900;
+    font-size: xx-large;
+    text-align:right;
+}
 h1{
     text-align: center;
     color: wheat;

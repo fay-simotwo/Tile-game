@@ -5,6 +5,12 @@ let firstBox, secondBox;
 let moveCounter = 0;
 const moveCounterElement = document.getElementById('move-counter');
 const starRatingElement = document.getElementById('star-rating');
+const timerElement = document.getElementById('timer');
+
+let timerInterval;
+let seconds = 0;
+let minutes = 0;
+
 function flipBox() {
   if (lockBoard) return;
   if (this === firstBox) return;
@@ -28,6 +34,7 @@ function checkForMatch() {
     if (isMatch) {
       disableBoxes();
       animateMatch();
+      checkWinCondition();
     } else {
       unflipBoxes();
       animateMismatch();
@@ -90,13 +97,41 @@ function incrementMoveCounter() {
       return '⭐'; // 1 star for more than 15 moves
     }
 }
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+      seconds++;
+      if (seconds >= 60) {
+        seconds = 0;
+        minutes++;
+      }
+      timerElement.textContent = `${formatTime(minutes)}:${formatTime(seconds)}`;
+    }, 1000);
+  }
+  
+  function formatTime(time) {
+    return time < 10 ? `0${time}` : time;
+  }
+  
+  function stopTimer() {
+    clearInterval(timerInterval);
+  }
+  
+  function checkWinCondition() {
+    const matchedBoxes = document.querySelectorAll('.flip');
+    if (matchedBoxes.length === boxes.length) {
+      stopTimer();
+    }
+  }
+  
   
 
-(function shuffle() {
-  boxes.forEach(box => {
-    let randomPos = Math.floor(Math.random() * 12);
-    box.style.order = randomPos;
-  });
-})();
-
+  (function shuffle() {
+    boxes.forEach(box => {
+      let randomPos = Math.floor(Math.random() * 12);
+      box.style.order = randomPos;
+    });
+  
+    startTimer(); // Start the timer when shuffling is complete
+  })();
 boxes.forEach(box => box.addEventListener('click', flipBox));
