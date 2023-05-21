@@ -3,8 +3,8 @@ let hasFlippedBox = false;
 let lockBoard = false;
 let firstBox, secondBox;
 let moveCounter = 0;
-
 const moveCounterElement = document.getElementById('move-counter');
+const starRatingElement = document.getElementById('star-rating');
 function flipBox() {
   if (lockBoard) return;
   if (this === firstBox) return;
@@ -18,6 +18,7 @@ function flipBox() {
     secondBox = this;
     checkForMatch();
     incrementMoveCounter();
+    updateStarRating(); // Update the star rating after each move
   }
 }
 
@@ -75,6 +76,21 @@ function incrementMoveCounter() {
     moveCounter++; // Increment the move counter
     moveCounterElement.textContent = moveCounter; // Update the move counter element in the HTML
   }
+  function updateStarRating() {
+    let starRating = getStarRating(); // Get the star rating based on the number of moves
+    starRatingElement.innerHTML = starRating; // Update the star rating element in the HTML
+  }
+  
+  function getStarRating() {
+    if (moveCounter <= 10) {
+      return '⭐⭐⭐'; // 3 stars for 10 moves or fewer
+    } else if (moveCounter <= 15) {
+      return '⭐⭐'; // 2 stars for 11-15 moves
+    } else {
+      return '⭐'; // 1 star for more than 15 moves
+    }
+}
+  
 
 (function shuffle() {
   boxes.forEach(box => {
