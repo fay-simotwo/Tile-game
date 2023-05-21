@@ -23,6 +23,7 @@ function checkForMatch() {
   
     if (isMatch) {
       disableBoxes();
+      animateMatch();
     } else {
       unflipBoxes();
       animateMismatch();
@@ -46,6 +47,12 @@ function unflipBoxes() {
     resetBoard();
   }, 1500);
 }
+function animateMatch() {
+    firstBox.querySelector('.front').classList.add('pulse');
+    firstBox.querySelector('.back').classList.add('pulse');
+    secondBox.querySelector('.front').classList.add('pulse');
+    secondBox.querySelector('.back').classList.add('pulse');
+  }
 function animateMismatch() {
     firstBox.classList.add('shake');
     secondBox.classList.add('shake');
