@@ -1,4 +1,19 @@
-const boxes = document.querySelectorAll('.boxes li');
+// const boxes = document.querySelectorAll('.box');
+// let boxOne, boxTwo;
+
+// function flipBox(e){
+//     let clickedBox = e.target;
+//     clickedBox.classList.add('flip');
+
+//     boxOne = clickedBox;
+//     boxTwo = clickedBox;
+//     console.log(boxOne,boxTwo)
+// }
+// boxOne.forEach(box => {
+//     box.addEventListiener('click', flipBox);
+// });
+const boxs = document.querySelectorAll('.box');
+
 let hasFlippedBox = false;
 let lockBoard = false;
 let firstBox, secondBox;
@@ -12,31 +27,28 @@ function flipBox() {
   if (!hasFlippedBox) {
     hasFlippedBox = true;
     firstBox = this;
-  } else {
-    secondBox = this;
-    checkForMatch();
+
+    return;
   }
+
+  secondBox = this;
+  checkForMatch();
 }
 
 function checkForMatch() {
-    let isMatch = firstBox.querySelector('.back img').src === secondBox.querySelector('.back img').src;
-  
-    if (isMatch) {
-      disableBoxes();
-    } else {
-      unflipBoxes();
-      animateMismatch();
-    }
-  }
+  let isMatch = firstBox.dataset.framework === secondBox.dataset.framework;
 
-function disableBoxes() {
+  isMatch ? disableBoxs() : unflipBoxs();
+}
+
+function disableBoxs() {
   firstBox.removeEventListener('click', flipBox);
   secondBox.removeEventListener('click', flipBox);
 
   resetBoard();
 }
 
-function unflipBoxes() {
+function unflipBoxs() {
   lockBoard = true;
 
   setTimeout(() => {
@@ -46,16 +58,6 @@ function unflipBoxes() {
     resetBoard();
   }, 1500);
 }
-function animateMismatch() {
-    firstBox.classList.add('shake');
-    secondBox.classList.add('shake');
-  
-    setTimeout(() => {
-      firstBox.classList.remove('shake');
-      secondBox.classList.remove('shake');
-    }, 500);
-  }
-
 
 function resetBoard() {
   [hasFlippedBox, lockBoard] = [false, false];
@@ -63,10 +65,10 @@ function resetBoard() {
 }
 
 (function shuffle() {
-  boxes.forEach(box => {
+  boxs.forEach(box => {
     let randomPos = Math.floor(Math.random() * 12);
     box.style.order = randomPos;
   });
 })();
 
-boxes.forEach(box => box.addEventListener('click', flipBox));
+boxs.forEach(box => box.addEventListener('click', flipBox));
