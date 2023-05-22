@@ -46,6 +46,7 @@ function disableBoxes() {
   secondBox.removeEventListener('click', flipBox);
 
   resetBoard();
+  checkWinCondition();
 }
 
 function unflipBoxes() {
@@ -71,6 +72,7 @@ function animateMismatch() {
     setTimeout(() => {
       firstBox.classList.remove('shake');
       secondBox.classList.remove('shake');
+      
     }, 500);
   }
 
@@ -115,13 +117,16 @@ function startTimer() {
   
   function stopTimer() {
     clearInterval(timerInterval);
+    
   }
   
   function checkWinCondition() {
     const matchedBoxes = document.querySelectorAll('.flip');
     if (matchedBoxes.length === boxes.length) {
       stopTimer(); // Stop the timer when all boxes are matched
-    
+      setTimeout(() => {
+        alert('Congratulations! Game Over.');
+    }, 500);
     }
   }
   
