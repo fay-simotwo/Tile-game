@@ -1,13 +1,11 @@
 # Tile-game
 ### Author 
-``` 
+
 CHEPKOECH FAITH
 
-```
 ## Project Description
-```
+
 My Website is all about a tile matching game.
-```
 
 ## Project SetUp and Instructions
 #### To set up and run the project follow the below steps
@@ -21,14 +19,14 @@ git push origin master
 
 ```
 ### Technologies Used
-```
+
 Html
 css
 Git 
 Vscode
 Javascript
 
-```
+
 
 ### Link to live site
 ##### https://fay-simotwo.github.io/Tile-game/
