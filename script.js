@@ -120,7 +120,8 @@ function startTimer() {
   function checkWinCondition() {
     const matchedBoxes = document.querySelectorAll('.flip');
     if (matchedBoxes.length === boxes.length) {
-      stopTimer();
+      stopTimer(); // Stop the timer when all boxes are matched
+    
     }
   }
   
@@ -138,19 +139,18 @@ function startTimer() {
 restartButton.addEventListener('click', restartGame);
 
 function restartGame() {
-  // Reset game board
-  boxes.forEach(box => {
-    box.classList.remove('flip');
-    box.addEventListener('click', flipBox);
-  });
-
-  resetBoard();
-
-  // Reset move counter
-  moveCounter = 0;
-  moveCounterElement.textContent = moveCounter;
-
-  // Reset star rating
+    // Reset game board
+    boxes.forEach(box => {
+      box.classList.remove('flip');
+      box.addEventListener('click', flipBox);
+    });
+  
+    resetBoard();
+  
+    // Reset move counter
+    moveCounter = 0;
+    moveCounterElement.textContent = moveCounter;
+      // Reset star rating
   updateStarRating();
 
   // Reset timer
@@ -159,7 +159,7 @@ function restartGame() {
   minutes = 0;
   timerElement.textContent = '00:00';
 
-  // Start timer again
+  // Start timer
   startTimer();
 }
 boxes.forEach(box => box.addEventListener('click', flipBox));

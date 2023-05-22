@@ -3,7 +3,7 @@ html{
     justify-content: center;
     align-items: center;
     display: flex;
-    min-height: 100vh;
+    min-height: 150vh;
 }
 p{
     color: rgb(5, 4, 1);
@@ -22,16 +22,20 @@ h1{
     font-size: xx-large;
 }
 button{
-    font-size: large;
+    font-size: x-large;
+    font-style: italic;
     border-radius: 10px;
     background-color: darkslategray;
     font-family: cursive;
-    width: 100px;
-    height: 30px;
+    width: 150px;
+    height: 45px;
+    font-weight: 900;    
+    cursor: pointer;
 
 }
+      
+     
 .flex-containers{
-    /* display: flex; */
     background-color:lightcoral;
     width: 800px;
     height: 800px;
@@ -39,24 +43,10 @@ button{
     border: 5px solid none;
     height: 580px;
     padding: 25px;
-    /* flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center; */
     box-shadow: 0 0 10px;
     
     
 }
-/* .box.back img{
-    width: 150px;
-    height: 150px;
-    line-height: 200px;
-    margin:10px;
-    text-align: center;
-    border-radius: 20px;
-    margin-top: 30px;
-    transform-style: preserve-3d;
-    perspective: 800px;
-} */
 img{
     height: 40px;
     width:80px;
@@ -111,6 +101,13 @@ img{
 .box.flip .back{
     transform: rotateY(0);
 }
+#game-result {
+    display: none;
+  }
+  
+  #game-result.show {
+    display: block;
+  }
 
 .shake {
     animation: shake 0.5s;
